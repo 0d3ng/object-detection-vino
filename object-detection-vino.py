@@ -7,7 +7,6 @@
 #  Website: sinaungoding.com
 
 import cv2 as cv
-import os
 
 # Load class txt
 LABELS = open("classes.txt").read().strip().split("\n")
