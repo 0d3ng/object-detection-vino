@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <net batch="1" name="frozen_inference_graph" version="5">
 	<layers>
-		<layer id="0" name="image_tensor" precision="FP32" type="Input">
+		<layer id="0" name="image_tensor" precision="FP16" type="Input">
 			<output>
 				<port id="0">
 					<dim>1</dim>
@@ -11,7 +11,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="1" name="Preprocessor/mul/FusedPower_" precision="FP32" type="Power">
+		<layer id="1" name="Preprocessor/mul/FusedPower_" precision="FP16" type="Power">
 			<data power="1" scale="0.007843137718737125" shift="-1.0"/>
 			<input>
 				<port id="0">
@@ -30,7 +30,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="2" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="2" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="32" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -49,11 +49,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="0" size="3456"/>
-				<biases offset="3456" size="128"/>
+				<weights offset="0" size="1728"/>
+				<biases offset="1728" size="64"/>
 			</blobs>
 		</layer>
-		<layer id="3" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_0/Relu6" precision="FP32" type="Clamp">
+		<layer id="3" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_0/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -72,7 +72,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="4" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="4" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="32" kernel="3,3" output="32" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -91,11 +91,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="3584" size="1152"/>
-				<biases offset="4736" size="128"/>
+				<weights offset="1792" size="576"/>
+				<biases offset="2368" size="64"/>
 			</blobs>
 		</layer>
-		<layer id="5" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="5" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -114,7 +114,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="6" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="6" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="64" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -133,11 +133,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="4864" size="8192"/>
-				<biases offset="13056" size="256"/>
+				<weights offset="2432" size="4096"/>
+				<biases offset="6528" size="128"/>
 			</blobs>
 		</layer>
-		<layer id="7" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="7" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -156,7 +156,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="8" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="8" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="64" kernel="3,3" output="64" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -175,11 +175,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="13312" size="2304"/>
-				<biases offset="15616" size="256"/>
+				<weights offset="6656" size="1152"/>
+				<biases offset="7808" size="128"/>
 			</blobs>
 		</layer>
-		<layer id="9" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="9" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -198,7 +198,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="10" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="10" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="128" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -217,11 +217,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="15872" size="32768"/>
-				<biases offset="48640" size="512"/>
+				<weights offset="7936" size="16384"/>
+				<biases offset="24320" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="11" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="11" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -240,7 +240,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="12" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="12" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="128" kernel="3,3" output="128" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -259,11 +259,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="49152" size="4608"/>
-				<biases offset="53760" size="512"/>
+				<weights offset="24576" size="2304"/>
+				<biases offset="26880" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="13" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="13" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -282,7 +282,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="14" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="14" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="128" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -301,11 +301,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="54272" size="65536"/>
-				<biases offset="119808" size="512"/>
+				<weights offset="27136" size="32768"/>
+				<biases offset="59904" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="15" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="15" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -324,7 +324,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="16" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="16" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="128" kernel="3,3" output="128" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -343,11 +343,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="120320" size="4608"/>
-				<biases offset="124928" size="512"/>
+				<weights offset="60160" size="2304"/>
+				<biases offset="62464" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="17" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="17" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -366,7 +366,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="18" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="18" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="256" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -385,11 +385,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="125440" size="131072"/>
-				<biases offset="256512" size="1024"/>
+				<weights offset="62720" size="65536"/>
+				<biases offset="128256" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="19" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="19" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -408,7 +408,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="20" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="20" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="256" kernel="3,3" output="256" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -427,11 +427,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="257536" size="9216"/>
-				<biases offset="266752" size="1024"/>
+				<weights offset="128768" size="4608"/>
+				<biases offset="133376" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="21" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="21" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -450,7 +450,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="22" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="22" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="256" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -469,11 +469,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="267776" size="262144"/>
-				<biases offset="529920" size="1024"/>
+				<weights offset="133888" size="131072"/>
+				<biases offset="264960" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="23" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="23" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -492,7 +492,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="24" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="24" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="256" kernel="3,3" output="256" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -511,11 +511,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="530944" size="9216"/>
-				<biases offset="540160" size="1024"/>
+				<weights offset="265472" size="4608"/>
+				<biases offset="270080" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="25" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="25" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -534,7 +534,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="26" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="26" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -553,11 +553,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="541184" size="524288"/>
-				<biases offset="1065472" size="2048"/>
+				<weights offset="270592" size="262144"/>
+				<biases offset="532736" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="27" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="27" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -576,7 +576,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="28" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="28" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -595,11 +595,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="1067520" size="18432"/>
-				<biases offset="1085952" size="2048"/>
+				<weights offset="533760" size="9216"/>
+				<biases offset="542976" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="29" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="29" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -618,7 +618,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="30" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="30" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -637,11 +637,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="1088000" size="1048576"/>
-				<biases offset="2136576" size="2048"/>
+				<weights offset="544000" size="524288"/>
+				<biases offset="1068288" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="31" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="31" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -660,7 +660,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="32" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="32" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -679,11 +679,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="2138624" size="18432"/>
-				<biases offset="2157056" size="2048"/>
+				<weights offset="1069312" size="9216"/>
+				<biases offset="1078528" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="33" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="33" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -702,7 +702,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="34" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="34" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -721,11 +721,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="2159104" size="1048576"/>
-				<biases offset="3207680" size="2048"/>
+				<weights offset="1079552" size="524288"/>
+				<biases offset="1603840" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="35" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="35" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -744,7 +744,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="36" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="36" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -763,11 +763,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="3209728" size="18432"/>
-				<biases offset="3228160" size="2048"/>
+				<weights offset="1604864" size="9216"/>
+				<biases offset="1614080" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="37" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="37" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -786,7 +786,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="38" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="38" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -805,11 +805,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="3230208" size="1048576"/>
-				<biases offset="4278784" size="2048"/>
+				<weights offset="1615104" size="524288"/>
+				<biases offset="2139392" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="39" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="39" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -828,7 +828,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="40" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="40" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -847,11 +847,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="4280832" size="18432"/>
-				<biases offset="4299264" size="2048"/>
+				<weights offset="2140416" size="9216"/>
+				<biases offset="2149632" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="41" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="41" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -870,7 +870,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="42" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="42" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -889,11 +889,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="4301312" size="1048576"/>
-				<biases offset="5349888" size="2048"/>
+				<weights offset="2150656" size="524288"/>
+				<biases offset="2674944" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="43" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="43" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -912,7 +912,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="44" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="44" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -931,11 +931,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="5351936" size="18432"/>
-				<biases offset="5370368" size="2048"/>
+				<weights offset="2675968" size="9216"/>
+				<biases offset="2685184" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="45" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="45" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -954,7 +954,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="46" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="46" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="512" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -973,11 +973,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="5372416" size="1048576"/>
-				<biases offset="6420992" size="2048"/>
+				<weights offset="2686208" size="524288"/>
+				<biases offset="3210496" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="47" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="47" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -996,7 +996,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="48" name="BoxPredictor_0/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="48" name="BoxPredictor_0/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="12" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1015,11 +1015,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="6423040" size="24576"/>
-				<biases offset="6447616" size="48"/>
+				<weights offset="3211520" size="12288"/>
+				<biases offset="3223808" size="24"/>
 			</blobs>
 		</layer>
-		<layer id="49" name="BoxPredictor_0/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="49" name="BoxPredictor_0/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1038,17 +1038,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="50" name="5969/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="50" name="6061/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="51" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="51" name="BoxPredictor_0/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1068,7 +1068,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="52" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="52" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="512" kernel="3,3" output="512" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -1087,11 +1087,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="6447676" size="18432"/>
-				<biases offset="6466108" size="2048"/>
+				<weights offset="3223838" size="9216"/>
+				<biases offset="3233054" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="53" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="53" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1110,7 +1110,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="54" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="54" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="1024" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1129,11 +1129,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="6468156" size="2097152"/>
-				<biases offset="8565308" size="4096"/>
+				<weights offset="3234078" size="1048576"/>
+				<biases offset="4282654" size="2048"/>
 			</blobs>
 		</layer>
-		<layer id="55" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="55" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1152,7 +1152,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="56" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise" precision="FP32" type="Convolution">
+		<layer id="56" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1024" kernel="3,3" output="1024" pads_begin="1,1" pads_end="1,1" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1171,11 +1171,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="8569404" size="36864"/>
-				<biases offset="8606268" size="4096"/>
+				<weights offset="4284702" size="18432"/>
+				<biases offset="4303134" size="2048"/>
 			</blobs>
 		</layer>
-		<layer id="57" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="57" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1194,7 +1194,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="58" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="58" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="1024" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1213,11 +1213,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="8610364" size="4194304"/>
-				<biases offset="12804668" size="4096"/>
+				<weights offset="4305182" size="2097152"/>
+				<biases offset="6402334" size="2048"/>
 			</blobs>
 		</layer>
-		<layer id="59" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6" precision="FP32" type="Clamp">
+		<layer id="59" name="FeatureExtractor/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1236,7 +1236,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="60" name="BoxPredictor_1/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="60" name="BoxPredictor_1/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1255,11 +1255,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="12808764" size="98304"/>
-				<biases offset="12907068" size="96"/>
+				<weights offset="6404382" size="49152"/>
+				<biases offset="6453534" size="48"/>
 			</blobs>
 		</layer>
-		<layer id="61" name="BoxPredictor_1/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="61" name="BoxPredictor_1/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1278,17 +1278,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="62" name="5973/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="62" name="6065/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="63" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="63" name="BoxPredictor_1/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1308,7 +1308,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="64" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_2_1x1_256/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="64" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_2_1x1_256/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="256" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1327,11 +1327,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="12907164" size="1048576"/>
-				<biases offset="13955740" size="1024"/>
+				<weights offset="6453582" size="524288"/>
+				<biases offset="6977870" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="65" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_2_1x1_256/Relu6" precision="FP32" type="Clamp">
+		<layer id="65" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_2_1x1_256/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1350,7 +1350,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="66" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="66" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="512" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -1369,11 +1369,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="13956764" size="4718592"/>
-				<biases offset="18675356" size="2048"/>
+				<weights offset="6978382" size="2359296"/>
+				<biases offset="9337678" size="1024"/>
 			</blobs>
 		</layer>
-		<layer id="67" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512/Relu6" precision="FP32" type="Clamp">
+		<layer id="67" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_2_3x3_s2_512/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1392,7 +1392,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="68" name="BoxPredictor_2/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="68" name="BoxPredictor_2/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1411,11 +1411,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="18677404" size="49152"/>
-				<biases offset="18726556" size="96"/>
+				<weights offset="9338702" size="24576"/>
+				<biases offset="9363278" size="48"/>
 			</blobs>
 		</layer>
-		<layer id="69" name="BoxPredictor_2/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="69" name="BoxPredictor_2/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1434,17 +1434,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="70" name="5977/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="70" name="6069/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="71" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="71" name="BoxPredictor_2/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1464,7 +1464,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="72" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_3_1x1_128/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="72" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_3_1x1_128/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="128" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1483,11 +1483,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="18726652" size="262144"/>
-				<biases offset="18988796" size="512"/>
+				<weights offset="9363326" size="131072"/>
+				<biases offset="9494398" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="73" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_3_1x1_128/Relu6" precision="FP32" type="Clamp">
+		<layer id="73" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_3_1x1_128/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1506,7 +1506,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="74" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="74" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="256" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -1525,11 +1525,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="18989308" size="1179648"/>
-				<biases offset="20168956" size="1024"/>
+				<weights offset="9494654" size="589824"/>
+				<biases offset="10084478" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="75" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256/Relu6" precision="FP32" type="Clamp">
+		<layer id="75" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_3_3x3_s2_256/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1548,7 +1548,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="76" name="BoxPredictor_3/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="76" name="BoxPredictor_3/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1567,11 +1567,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="20169980" size="24576"/>
-				<biases offset="20194556" size="96"/>
+				<weights offset="10084990" size="12288"/>
+				<biases offset="10097278" size="48"/>
 			</blobs>
 		</layer>
-		<layer id="77" name="BoxPredictor_3/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="77" name="BoxPredictor_3/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1590,17 +1590,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="78" name="5981/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="78" name="6073/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="79" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="79" name="BoxPredictor_3/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1620,7 +1620,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="80" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_4_1x1_128/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="80" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_4_1x1_128/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="128" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1639,11 +1639,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="20194652" size="131072"/>
-				<biases offset="20325724" size="512"/>
+				<weights offset="10097326" size="65536"/>
+				<biases offset="10162862" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="81" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_4_1x1_128/Relu6" precision="FP32" type="Clamp">
+		<layer id="81" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_4_1x1_128/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1662,7 +1662,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="82" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="82" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="256" pads_begin="1,1" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -1681,11 +1681,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="20326236" size="1179648"/>
-				<biases offset="21505884" size="1024"/>
+				<weights offset="10163118" size="589824"/>
+				<biases offset="10752942" size="512"/>
 			</blobs>
 		</layer>
-		<layer id="83" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256/Relu6" precision="FP32" type="Clamp">
+		<layer id="83" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_4_3x3_s2_256/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1704,7 +1704,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="84" name="BoxPredictor_4/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="84" name="BoxPredictor_4/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1723,11 +1723,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="21506908" size="24576"/>
-				<biases offset="21531484" size="96"/>
+				<weights offset="10753454" size="12288"/>
+				<biases offset="10765742" size="48"/>
 			</blobs>
 		</layer>
-		<layer id="85" name="BoxPredictor_4/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="85" name="BoxPredictor_4/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1746,17 +1746,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="86" name="5985/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="86" name="6077/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="87" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="87" name="BoxPredictor_4/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1776,7 +1776,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="88" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_5_1x1_64/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="88" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_5_1x1_64/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="64" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1795,11 +1795,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="21531580" size="65536"/>
-				<biases offset="21597116" size="256"/>
+				<weights offset="10765790" size="32768"/>
+				<biases offset="10798558" size="128"/>
 			</blobs>
 		</layer>
-		<layer id="89" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_5_1x1_64/Relu6" precision="FP32" type="Clamp">
+		<layer id="89" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_1_Conv2d_5_1x1_64/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1818,7 +1818,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="90" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128/BatchNorm/batchnorm/mul_1" precision="FP32" type="Convolution">
+		<layer id="90" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128/BatchNorm/batchnorm/mul_1" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="3,3" output="128" pads_begin="0,0" pads_end="1,1" strides="2,2"/>
 			<input>
 				<port id="0">
@@ -1837,11 +1837,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="21597372" size="294912"/>
-				<biases offset="21892284" size="512"/>
+				<weights offset="10798686" size="147456"/>
+				<biases offset="10946142" size="256"/>
 			</blobs>
 		</layer>
-		<layer id="91" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128/Relu6" precision="FP32" type="Clamp">
+		<layer id="91" name="FeatureExtractor/MobilenetV1/Conv2d_13_pointwise_2_Conv2d_5_3x3_s2_128/Relu6" precision="FP16" type="Clamp">
 			<data max="6" min="0"/>
 			<input>
 				<port id="0">
@@ -1860,7 +1860,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="92" name="BoxPredictor_5/BoxEncodingPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="92" name="BoxPredictor_5/BoxEncodingPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="24" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -1879,11 +1879,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="21892796" size="12288"/>
-				<biases offset="21905084" size="96"/>
+				<weights offset="10946398" size="6144"/>
+				<biases offset="10952542" size="48"/>
 			</blobs>
 		</layer>
-		<layer id="93" name="BoxPredictor_5/BoxEncodingPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="93" name="BoxPredictor_5/BoxEncodingPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -1902,17 +1902,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="94" name="5989/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="94" name="6081/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="6447664" size="12"/>
+				<custom offset="3223832" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="95" name="BoxPredictor_5/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="95" name="BoxPredictor_5/BoxEncodingPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -1932,7 +1932,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="96" name="concat" precision="FP32" type="Concat">
+		<layer id="96" name="concat" precision="FP16" type="Concat">
 			<data axis="1"/>
 			<input>
 				<port id="0">
@@ -1974,17 +1974,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="97" name="do_reshape_loc/DimData_const" precision="FP32" type="Const">
+		<layer id="97" name="do_reshape_loc/DimData_const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>2</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="21905180" size="8"/>
+				<custom offset="10952590" size="4"/>
 			</blobs>
 		</layer>
-		<layer id="98" name="do_reshape_loc" precision="FP32" type="Reshape">
+		<layer id="98" name="do_reshape_loc" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2002,7 +2002,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="99" name="BoxPredictor_0/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="99" name="BoxPredictor_0/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="273" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2021,11 +2021,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="21905188" size="559104"/>
-				<biases offset="22464292" size="1092"/>
+				<weights offset="10952594" size="279552"/>
+				<biases offset="11232146" size="546"/>
 			</blobs>
 		</layer>
-		<layer id="100" name="BoxPredictor_0/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="100" name="BoxPredictor_0/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2044,17 +2044,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="101" name="5971/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="101" name="6063/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="102" name="BoxPredictor_0/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="102" name="BoxPredictor_0/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2074,7 +2074,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="103" name="BoxPredictor_1/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="103" name="BoxPredictor_1/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="546" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2093,11 +2093,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="22465396" size="2236416"/>
-				<biases offset="24701812" size="2184"/>
+				<weights offset="11232698" size="1118208"/>
+				<biases offset="12350906" size="1092"/>
 			</blobs>
 		</layer>
-		<layer id="104" name="BoxPredictor_1/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="104" name="BoxPredictor_1/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2116,17 +2116,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="105" name="5975/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="105" name="6067/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="106" name="BoxPredictor_1/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="106" name="BoxPredictor_1/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2146,7 +2146,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="107" name="BoxPredictor_2/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="107" name="BoxPredictor_2/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="546" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2165,11 +2165,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="24703996" size="1118208"/>
-				<biases offset="25822204" size="2184"/>
+				<weights offset="12351998" size="559104"/>
+				<biases offset="12911102" size="1092"/>
 			</blobs>
 		</layer>
-		<layer id="108" name="BoxPredictor_2/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="108" name="BoxPredictor_2/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2188,17 +2188,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="109" name="5979/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="109" name="6071/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="110" name="BoxPredictor_2/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="110" name="BoxPredictor_2/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2218,7 +2218,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="111" name="BoxPredictor_3/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="111" name="BoxPredictor_3/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="546" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2237,11 +2237,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="25824388" size="559104"/>
-				<biases offset="26383492" size="2184"/>
+				<weights offset="12912194" size="279552"/>
+				<biases offset="13191746" size="1092"/>
 			</blobs>
 		</layer>
-		<layer id="112" name="BoxPredictor_3/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="112" name="BoxPredictor_3/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2260,17 +2260,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="113" name="5983/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="113" name="6075/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="114" name="BoxPredictor_3/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="114" name="BoxPredictor_3/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2290,7 +2290,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="115" name="BoxPredictor_4/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="115" name="BoxPredictor_4/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="546" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2309,11 +2309,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="26385676" size="559104"/>
-				<biases offset="26944780" size="2184"/>
+				<weights offset="13192838" size="279552"/>
+				<biases offset="13472390" size="1092"/>
 			</blobs>
 		</layer>
-		<layer id="116" name="BoxPredictor_4/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="116" name="BoxPredictor_4/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2332,17 +2332,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="117" name="5987/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="117" name="6079/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="118" name="BoxPredictor_4/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="118" name="BoxPredictor_4/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2362,7 +2362,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="119" name="BoxPredictor_5/ClassPredictor/Conv2D" precision="FP32" type="Convolution">
+		<layer id="119" name="BoxPredictor_5/ClassPredictor/Conv2D" precision="FP16" type="Convolution">
 			<data auto_pad="same_upper" dilations="1,1" group="1" kernel="1,1" output="546" pads_begin="0,0" pads_end="0,0" strides="1,1"/>
 			<input>
 				<port id="0">
@@ -2381,11 +2381,11 @@
 				</port>
 			</output>
 			<blobs>
-				<weights offset="26946964" size="279552"/>
-				<biases offset="27226516" size="2184"/>
+				<weights offset="13473482" size="139776"/>
+				<biases offset="13613258" size="1092"/>
 			</blobs>
 		</layer>
-		<layer id="120" name="BoxPredictor_5/ClassPredictor/Conv2D/Permute_" precision="FP32" type="Permute">
+		<layer id="120" name="BoxPredictor_5/ClassPredictor/Conv2D/Permute_" precision="FP16" type="Permute">
 			<data order="0,2,3,1"/>
 			<input>
 				<port id="0">
@@ -2404,17 +2404,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="121" name="5991/Output_0/Data__const" precision="FP32" type="Const">
+		<layer id="121" name="6083/Output_0/Data__const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>3</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="22465384" size="12"/>
+				<custom offset="11232692" size="6"/>
 			</blobs>
 		</layer>
-		<layer id="122" name="BoxPredictor_5/ClassPredictor/BiasAdd/Reshape" precision="FP32" type="Reshape">
+		<layer id="122" name="BoxPredictor_5/ClassPredictor/BiasAdd/Reshape" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2434,7 +2434,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="123" name="concat_1" precision="FP32" type="Concat">
+		<layer id="123" name="concat_1" precision="FP16" type="Concat">
 			<data axis="1"/>
 			<input>
 				<port id="0">
@@ -2476,17 +2476,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="124" name="do_ExpandDims_conf/DimData_const" precision="FP32" type="Const">
+		<layer id="124" name="do_ExpandDims_conf/DimData_const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>4</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="27228700" size="16"/>
+				<custom offset="13614350" size="8"/>
 			</blobs>
 		</layer>
-		<layer id="125" name="do_ExpandDims_conf" precision="FP32" type="Reshape">
+		<layer id="125" name="do_ExpandDims_conf" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2506,7 +2506,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="126" name="do_ExpandDims_conf/sigmoid" precision="FP32" type="Activation">
+		<layer id="126" name="do_ExpandDims_conf/sigmoid" precision="FP16" type="Activation">
 			<data type="sigmoid"/>
 			<input>
 				<port id="0">
@@ -2525,17 +2525,17 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="127" name="do_reshape_conf/DimData_const" precision="FP32" type="Const">
+		<layer id="127" name="do_reshape_conf/DimData_const" precision="FP16" type="Const">
 			<output>
 				<port id="1">
 					<dim>2</dim>
 				</port>
 			</output>
 			<blobs>
-				<custom offset="21905180" size="8"/>
+				<custom offset="10952590" size="4"/>
 			</blobs>
 		</layer>
-		<layer id="128" name="do_reshape_conf" precision="FP32" type="Reshape">
+		<layer id="128" name="do_reshape_conf" precision="FP16" type="Reshape">
 			<input>
 				<port id="0">
 					<dim>1</dim>
@@ -2554,7 +2554,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="129" name="PriorBoxClustered_0" precision="FP32" type="PriorBoxClustered">
+		<layer id="129" name="PriorBoxClustered_0" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="30.0,42.42640750334631,84.85281500669262" offset="0.5" variance="0.1,0.1,0.2,0.2" width="30.0,84.85281500669265,42.426407503346326"/>
 			<input>
 				<port id="0">
@@ -2578,7 +2578,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="130" name="PriorBoxClustered_1" precision="FP32" type="PriorBoxClustered">
+		<layer id="130" name="PriorBoxClustered_1" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="104.99999999994,74.24621202454506,148.49242404909012,60.62177826487607,181.87443025249192,125.49900360603824" offset="0.5" variance="0.1,0.1,0.2,0.2" width="104.99999999994,148.49242404909015,74.24621202454507,181.8653347946282,60.61874659720808,125.49900360603824"/>
 			<input>
 				<port id="0">
@@ -2602,7 +2602,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="131" name="PriorBoxClustered_2" precision="FP32" type="PriorBoxClustered">
+		<layer id="131" name="PriorBoxClustered_2" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="149.99999910588,106.06601654574379,212.13203309148759,86.60253986222344,259.8206130978267,171.02631247097506" offset="0.5" variance="0.1,0.1,0.2,0.2" width="149.99999910588,212.1320330914876,106.0660165457438,259.8076195866703,86.59820890843783,171.02631247097506"/>
 			<input>
 				<port id="0">
@@ -2626,7 +2626,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="132" name="PriorBoxClustered_3" precision="FP32" type="PriorBoxClustered">
+		<layer id="132" name="PriorBoxClustered_3" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="194.99999821182,137.88582106694255,275.7716421338851,112.58330145957083,337.7667959431616,216.3330743270663" offset="0.5" variance="0.1,0.1,0.2,0.2" width="194.99999821182,275.77164213388517,137.88582106694258,337.7499043787124,112.57767121966761,216.3330743270663"/>
 			<input>
 				<port id="0">
@@ -2650,7 +2650,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="133" name="PriorBoxClustered_4" precision="FP32" type="PriorBoxClustered">
+		<layer id="133" name="PriorBoxClustered_4" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="239.99999731775998,169.7056255881413,339.4112511762826,138.5640630569182,415.71297878849646,261.5339335100698" offset="0.5" variance="0.1,0.1,0.2,0.2" width="239.99999731775998,339.41125117628263,169.70562558814132,415.69218917075455,138.55713353089737,261.5339335100698"/>
 			<input>
 				<port id="0">
@@ -2674,7 +2674,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="134" name="PriorBoxClustered_5" precision="FP32" type="PriorBoxClustered">
+		<layer id="134" name="PriorBoxClustered_5" precision="FP16" type="PriorBoxClustered">
 			<data clip="0" flip="0" height="284.9999964237,201.52543010934002,403.05086021868004,164.5448246542656,493.6591616338313,292.40382850966574" offset="0.5" variance="0.1,0.1,0.2,0.2" width="284.9999964237,403.05086021868016,201.52543010934008,493.6344739627967,164.53659584212716,292.40382850966574"/>
 			<input>
 				<port id="0">
@@ -2698,7 +2698,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="135" name="ConcatPriorBoxesClustered" precision="FP32" type="Concat">
+		<layer id="135" name="ConcatPriorBoxesClustered" precision="FP16" type="Concat">
 			<data axis="2"/>
 			<input>
 				<port id="0">
@@ -2740,7 +2740,7 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="136" name="DetectionOutput" precision="FP32" type="DetectionOutput">
+		<layer id="136" name="DetectionOutput" precision="FP16" type="DetectionOutput">
 			<data code_type="caffe.PriorBoxParameter.CENTER_SIZE" confidence_threshold="0.300000011921" input_height="1" input_width="1" keep_top_k="100" nms_threshold="0.600000023842" normalized="1" num_classes="91" pad_mode="caffe.ResizeParameter.CONSTANT" resize_mode="caffe.ResizeParameter.WARP" share_location="1" top_k="100" variance_encoded_in_target="0"/>
 			<input>
 				<port id="0">
@@ -2931,7 +2931,7 @@
 	<meta_data>
 		<MO_version value="2019.1.1-83-g28dfbfd"/>
 		<cli_parameters>
-			<data_type value="float"/>
+			<data_type value="FP16"/>
 			<disable_fusing value="False"/>
 			<disable_gfusing value="False"/>
 			<disable_nhwc_to_nchw value="False"/>
