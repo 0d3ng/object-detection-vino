@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "object-detection-vino.py", line 20, in <module>
+    out = net.forward()
+cv2.error: OpenCV(4.1.0-openvino) /home/jenkins/workspace/OpenCV/OpenVINO/build/opencv/modules/dnn/src/op_inf_engine.cpp:747: error: (-215:Assertion failed) Failed to initialize Inference Engine backend: [VPU] Unsupported network precision : FP32 in function 'initPlugin'
